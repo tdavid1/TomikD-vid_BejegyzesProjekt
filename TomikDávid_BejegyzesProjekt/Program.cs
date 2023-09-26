@@ -33,6 +33,7 @@ namespace TomikDávid_BejegyzesProjekt
                 list.Add(b);
             }
             f2_c();
+            f2_d();
         }
         public void f2_c()
         {
@@ -46,5 +47,23 @@ namespace TomikDávid_BejegyzesProjekt
                 list.Add(b);
             }
         }
+        public void f2_d()
+        {
+            Random r = new Random();
+            if (list.Count < 10)
+            {
+                for(int  i = 0; i < 20; i++) 
+                {
+                    list[r.Next(0, list.Count)].Like();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < 200; i++)
+                {
+                    list[r.Next(0, list.Count)].Like();
+                }
+            }
+        } 
     }
 }
