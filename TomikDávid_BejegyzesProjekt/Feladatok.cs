@@ -75,5 +75,21 @@ namespace TomikDávid_BejegyzesProjekt
                 Console.WriteLine(item);
             }
         }
+        private void f3()
+        {
+            f3_a();
+        }
+        private void f3_a()
+        {
+            int seged = 0;
+            foreach(var item in list)
+            {
+                if (seged < item.Likeok)
+                {
+                    seged = item.Likeok;
+                }
+            }
+            Console.WriteLine($"A legtőbb likeal rendelkező bejegyzésnek likeok száma: {seged}");
+        }
     }
 }
