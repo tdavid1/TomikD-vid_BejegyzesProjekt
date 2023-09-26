@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace TomikDávid_BejegyzesProjekt
 {
@@ -29,6 +30,19 @@ namespace TomikDávid_BejegyzesProjekt
                 string tartalom = Console.ReadLine();
                 DateTime dateTime = DateTime.Now;
                 Bejegyzes b = new Bejegyzes(szerzo,tartalom,dateTime);
+                list.Add(b);
+            }
+            f2_c();
+        }
+        public void f2_c()
+        {
+            StreamReader sr = new StreamReader("bejegyzesek.csv");
+            while (!sr.EndOfStream)
+            {
+                string[] sor = sr.ReadLine().Split(';');
+                string szerzo = sor[0];
+                string tartalom = sor[1];
+                Bejegyzes b = new Bejegyzes(szerzo, tartalom, DateTime.Now);
                 list.Add(b);
             }
         }
