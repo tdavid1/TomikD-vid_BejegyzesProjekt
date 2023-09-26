@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
@@ -82,6 +83,7 @@ namespace TomikDávid_BejegyzesProjekt
             f3_a();
             Console.WriteLine("Vanne 35-nél tőbb likeal rendelkezö bejegyzés?"+f3_b());
             Console.WriteLine("A 15-nél kevesebb like-al rendelkezök számma: "+f3_c());
+            f3_d();
         }
         private void f3_a()
         {
@@ -117,6 +119,17 @@ namespace TomikDávid_BejegyzesProjekt
                 }
             }
             return seged;
+        }
+        private void f3_d()
+        {
+            var newlist = list.OrderBy(x => x.Likeok).Reverse();
+            Console.WriteLine();
+            StreamWriter sw = new StreamWriter("bejegyzesek_rendezett.txt");
+            foreach (var item in newlist)
+            {
+                Console.WriteLine(item);
+                sw.WriteLine(item);
+            }
         }
     }
 }
