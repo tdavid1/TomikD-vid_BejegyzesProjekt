@@ -22,15 +22,22 @@ namespace TomikDávid_BejegyzesProjekt
         {
             Console.Write("Kérlek adjón meg egy számot menyi bejegyzést akkar létrehozni!");
             int szam = int.Parse(Console.ReadLine());
-            for (int i = 0; i < szam; i++)
+            if (szam < 0)
             {
-                Console.WriteLine("Kérlek adja meg a szerzot:");
-                string szerzo = Console.ReadLine();
-                Console.WriteLine("Kérlek adja meg a tartalmat");
-                string tartalom = Console.ReadLine();
-                DateTime dateTime = DateTime.Now;
-                Bejegyzes b = new Bejegyzes(szerzo,tartalom,dateTime);
-                list.Add(b);
+                Console.WriteLine("A szám nem természetes szám ezzért nem müködik");
+            }
+            else 
+            {
+                for (int i = 0; i < szam; i++)
+                {
+                    Console.WriteLine("Kérlek adja meg a szerzot:");
+                    string szerzo = Console.ReadLine();
+                    Console.WriteLine("Kérlek adja meg a tartalmat");
+                    string tartalom = Console.ReadLine();
+                    DateTime dateTime = DateTime.Now;
+                    Bejegyzes b = new Bejegyzes(szerzo, tartalom, dateTime);
+                    list.Add(b);
+                }
             }
             f2_c();
             f2_d();
