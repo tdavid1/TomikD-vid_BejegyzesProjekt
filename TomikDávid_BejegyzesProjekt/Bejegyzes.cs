@@ -13,6 +13,7 @@ namespace TomikDávid_BejegyzesProjekt
         private int likeok;
         private DateTime letrejot;
         private DateTime szerkesztve;
+        private string szerkesztetszoveg;
 
         public Bejegyzes(string szerzo, string tartalom, DateTime letrejot)
         {
@@ -20,7 +21,6 @@ namespace TomikDávid_BejegyzesProjekt
             this.tartalom = tartalom;
             this.likeok = 0;
             this.letrejot = letrejot;
-            this.szerkesztve = DateTime.Now;
         }
 
         public string Szerzo { get => szerzo;}
@@ -33,9 +33,15 @@ namespace TomikDávid_BejegyzesProjekt
         {
             this.likeok++;
         }
+        public void szerkesztes(string szoveg)
+        {
+            szerkesztetszoveg = tartalom;
+            this.tartalom = szoveg;
+            szerkesztve = DateTime.Now;
+        }
         public override string ToString()
         {
-            return $"{this.szerzo} - Likeok száma:{this.likeok} - Létrejöt:{this.letrejot} \n{szerkesztve} \n {tartalom}";
+            return $"{this.szerzo} - Likeok száma:{this.likeok} - Létrejöt:{this.letrejot} \n{szerkesztve}:{szerkesztetszoveg} \n {tartalom}";
         }
     }
 }

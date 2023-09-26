@@ -72,5 +72,12 @@ namespace TomikDávid_BejegyzesProjekt
                 }
             }
         } 
+        public void f2_e()
+        {
+            Console.WriteLine("Kérlek adja hogy mire modositjuk a szöveget.");
+            string tartalom = Console.ReadLine();
+            list[2].szerkesztes(tartalom);
+            
+        }
     }
 }
