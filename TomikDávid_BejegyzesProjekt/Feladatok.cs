@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,7 @@ namespace TomikDávid_BejegyzesProjekt
         public Feladatok() 
         {
             f2();
+            f3();
         }
         private void f2()
         {
@@ -65,7 +67,7 @@ namespace TomikDávid_BejegyzesProjekt
         {
             Console.WriteLine("Kérlek adja hogy mire modositjuk a szöveget.");
             string tartalom = Console.ReadLine();
-            list[2].szerkesztes(tartalom);
+            list[1].szerkesztes(tartalom);
 
         }
         private void f2_f()
@@ -78,6 +80,8 @@ namespace TomikDávid_BejegyzesProjekt
         private void f3()
         {
             f3_a();
+            Console.WriteLine("Vanne 35-nél tőbb likeal rendelkezö bejegyzés?"+f3_b());
+            Console.WriteLine("A 15-nél kevesebb like-al rendelkezök számma: "+f3_c());
         }
         private void f3_a()
         {
@@ -90,6 +94,29 @@ namespace TomikDávid_BejegyzesProjekt
                 }
             }
             Console.WriteLine($"A legtőbb likeal rendelkező bejegyzésnek likeok száma: {seged}");
+        }
+        private string f3_b()
+        {
+            foreach(var item in list)
+            {
+                if (item.Likeok > 35)
+                {
+                    return " Van";
+                }
+            }
+            return " Nincs";
+        }
+        private int f3_c()
+        {
+            int seged = 0;
+            foreach (var item in list)
+            {
+                if (item.Likeok < 15)
+                {
+                    seged++;
+                }
+            }
+            return seged;
         }
     }
 }

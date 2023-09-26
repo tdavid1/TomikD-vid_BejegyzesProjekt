@@ -35,13 +35,21 @@ namespace TomikDávid_BejegyzesProjekt
         }
         public void szerkesztes(string szoveg)
         {
-            szerkesztetszoveg = tartalom;
+            szerkesztetszoveg = this.tartalom;
             this.tartalom = szoveg;
             szerkesztve = DateTime.Now;
         }
         public override string ToString()
         {
-            return $"{this.szerzo} - Likeok száma:{this.likeok} - Létrejöt:{this.letrejot} \n{szerkesztve}:{szerkesztetszoveg} \n {tartalom}";
+            if(szerkesztetszoveg == null)
+            {
+                return $"{this.szerzo} - Likeok száma:{this.likeok} - Létrejöt:{this.letrejot}\n {tartalom}";
+            }
+            else
+            {
+                return $"{this.szerzo} - Likeok száma:{this.likeok} - Létrejöt:{this.letrejot}\n{szerkesztve}:{szerkesztetszoveg}\n{tartalom}";
+            }
+            
         }
     }
 }
