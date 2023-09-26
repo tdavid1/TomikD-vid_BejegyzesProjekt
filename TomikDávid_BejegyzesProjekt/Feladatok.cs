@@ -39,6 +39,7 @@ namespace TomikDávid_BejegyzesProjekt
             f2_c();
             f2_d();
             f2_e();
+            f2_f();
         }
         private void f2_c()
         {
@@ -55,19 +56,9 @@ namespace TomikDávid_BejegyzesProjekt
         private void f2_d()
         {
             Random r = new Random();
-            if (list.Count < 10)
+            for (int i = 0; i < list.Count*20; i++)
             {
-                for (int i = 0; i < 20; i++)
-                {
-                    list[r.Next(0, list.Count)].Like();
-                }
-            }
-            else
-            {
-                for (int i = 0; i < 200; i++)
-                {
-                    list[r.Next(0, list.Count)].Like();
-                }
+                list[r.Next(0, list.Count)].Like();
             }
         }
         private void f2_e()
